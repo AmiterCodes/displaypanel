@@ -1,0 +1,19 @@
+{
+  "name": "@reflow-typescript-react/interfaces",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@mcesystems/reflow": "4.3.9"
+  },
+  "devDependencies": {
+    "ts-node": "9.0.0",
+    "typescript": "3.4.3"
+  }
+}

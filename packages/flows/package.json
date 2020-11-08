@@ -1,0 +1,22 @@
+{
+  "name": "@reflow-typescript-react/flows",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@mcesystems/reflow": "4.3.9",
+    "systeminformation": "4.27.5",
+    "@reflow-typescript-react/interfaces": "1.0.0"
+  },
+  "devDependencies": {
+    "ts-node": "9.0.0",
+    "typescript": "3.4.3",
+    "@types/node": "12.12.2"
+  }
+}
