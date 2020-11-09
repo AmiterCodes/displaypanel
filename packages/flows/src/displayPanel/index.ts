@@ -6,7 +6,7 @@ import si from 'systeminformation'
 const displayPanel: Flow<typeof viewInterface> = async ({ view, views }) => {
     
     
-    const displayPanelView = view(0, views.displayPanel, await createDisplayInfo())
+    const displayPanelView = view(0, views.Display, await createDisplayInfo())
     console.log("flow call")
 
     displayPanelView.on('update',async () => {
@@ -19,16 +19,26 @@ const displayPanel: Flow<typeof viewInterface> = async ({ view, views }) => {
 
 async function createDisplayInfo() : Promise<DisplayInput> {
 
-    const osInfo = await si.osInfo()
+    const osInfo = await si.osInfo();
+    const cpu = await si.cpu();
+    const mem = await si.mem();
+    let shell;
+    try {
+        shell = await si.shell();
+    } catch(e) {
+        shell = 'shell not supported'
+    }
+    const user = (await si.users())[0]
+    const time = si.time()
 
     return <DisplayInput>{
         os: osInfo.platform,
-        cpu: '',
-        kernel: '',
-        memory: '',
-        shell: '',
-        terminal: '',
-        uptime: 1000
+        cpu: `${cpu.manufacturer} ${cpu.model} ${cpu.brand} @ ${cpu.speed}GHz`,
+        kernel: osInfo.kernel,
+        memory: `${(mem.used / 1048576).toFixed(2)} MB / ${(mem.total / 1048576).toFixed(2)} MB`,
+        shell,
+        terminal: user.tty,
+        uptime: parseFloat(time.uptime) * 1000 
     }
 } 
 

@@ -1,6 +1,9 @@
 const path = require('path');
 
 module.exports = {
+  devServer: {
+    port: 5890
+  },
   entry: './src/index.ts',
   module: {
     rules: [
@@ -11,6 +14,9 @@ module.exports = {
       },
     ],
   },
+  externals: [
+    'socket.io'
+  ],
   resolve: {
     extensions: [ '.tsx', '.ts', '.js' ],
   },

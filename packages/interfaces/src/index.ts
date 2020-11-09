@@ -2,7 +2,7 @@
 import DisplayPanel from './views/DisplayPanel'
 
 const views = {
-    displayPanel: {} as DisplayPanel
+    Display: {} as DisplayPanel
 
 } 
 
