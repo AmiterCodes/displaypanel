@@ -1,4 +1,4 @@
-import { Card, CardContent, makeStyles, Typography, withTheme } from "@material-ui/core";
+import { Card, CardContent, makeStyles, Slide, Typography, withTheme } from "@material-ui/core";
 import React from "react";
 
 
@@ -32,16 +32,18 @@ export default function Field(props : FieldProps) {
     
     const classes = useStyles();
     return(
-        <Card className={classes.root} variant="outlined">
-                <CardContent>
-                    <Typography className={classes.title} gutterBottom>
-                        {props.title}
-                    </Typography>
-                    <Typography variant="body1" component="p">
-                        {props.content}
-                    </Typography>
-                </CardContent>
-            </Card>
+        <Slide in direction='down'>
+            <Card className={classes.root} variant="outlined">
+                    <CardContent>
+                        <Typography className={classes.title} variant="caption">
+                            {props.title}
+                        </Typography>
+                        <Typography variant="body1" component="p">
+                            {props.content}
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Slide>
     )
 
 }
